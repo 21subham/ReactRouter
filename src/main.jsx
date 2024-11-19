@@ -40,7 +40,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      <Route path="about" element={<About />} />
+      <Route path="about" element={<About />}>
+        {/* nested inside about so we get /about/subham */}
+        <Route path="subham" />
+      </Route>
       <Route path="contact" element={<Contact />} />
       <Route path="user/:userid" element={<User />} />
       <Route loader={githubinfoloader} path="github" element={<Github />} />
